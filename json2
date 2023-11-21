@@ -1,0 +1,15 @@
+import json
+
+class Params():
+    def __init__(self, M):
+        self.max_iter = M
+
+best_par = Params(60)
+out_file = open("config/modelConfiguration.json", "w")
+json.dump(best_par, out_file)
+out_file.close()
+# load best configuration
+config_path = "config/modelConfiguration.json"
+with open(config_path, "r") as f:
+    params = json.load(f)
+params_object = Params(**params)

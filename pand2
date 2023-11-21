@@ -1,0 +1,12 @@
+from pandas import read_csv
+# Read csv
+data = read_csv('data/completeDataset.csv')
+# Check the content of the dataframe
+print(data.describe())
+# Remove column with constant values
+data = data.drop('h24', axis=1)
+# Remove anomalous instances
+data = data.loc[data['Anomalous'] < 1]
+print(data.describe())
+# Save as csv
+data.to_csv('data/preprocessedDataset.csv', index=False)

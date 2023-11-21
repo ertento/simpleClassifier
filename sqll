@@ -1,0 +1,16 @@
+import sqlite3
+con = sqlite3.connect('example.db')
+cur = con.cursor()
+# Create table and insert a row of data
+cur.execute('CREATE TABLE <table_name> (<col_1>, <col_2>, <…>)')
+cur.execute('INSERT INTO <table_name> VALUES ((<val_1>, <val_2>, <…>)')
+# Save the changes
+con.commit()
+# Return all results of query
+cur.execute('SELECT <…> FROM <…> WHERE <…> ')
+cur.fetchall()
+# Return first result of query
+cur.execute('SELECT <…> FROM <…> WHERE <…>')
+cur.fetchone()
+# Close the connection
+con.close()

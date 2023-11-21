@@ -1,0 +1,15 @@
+from pandas import read_csv
+# Read csv
+data1 = read_csv('data/hotspotUrbanMobility-1.csv')
+# Print dataframe shape
+print(data1.shape)
+# Read csv
+data2 = read_csv('data/hotspotUrbanMobility-2.csv')
+# Print dataframe shape
+print(data2.shape)
+# Append dataframes
+data1 = data1.append(data2, ignore_index=True)
+print(data1.shape)
+# Save the new datafame as csv
+data1.to_csv('data/completeDataset.csv', index=False)
+print("ok")
